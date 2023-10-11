@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트롤리 딜레마를 아시나요?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        #avoidButton {
+            position: absolute;
+            top: 80%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            font-size: 1rem; font-family: "Gowun Batang"; font-weight: 400;
+            z-index: 1;
+        }
+        #Button {
+            position: absolute;
+            top: 80%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            font-size: 1rem; font-family: "Gowun Batang"; font-weight: 400;
+        }
+        #back{display:block;margin:100px auto;}
+        h1 { position: absolute;font-size: 2rem; font-family: "Gowun Batang"; font-weight: 700; left: 30%; top: 10px}
+        p { position: absolute;font-size: 1rem; font-family: "Gowun Batang"; font-weight: 400; left: 30%; top: 60%}
+    </style>
+</head>
+<body>
+    <h1>트롤리 딜레마를 아시나요?</h1>
+    <img id="back" src="1696960883.webp">
+    <button id="avoidButton">당기기</button>
+    <button id="Button">당기지않기</button>
+        <p>당신은 브레이크가 고장난 광차가 인부 5명을 향해 돌진하는 것을 보았습니다.<br>당신이 레버를 당긴다면 선로를 틀어 광차의 방향을 바꿔 인부 5명을 구할 수 있지만, 당신은 죽습니다.<br>당신은 레버를 당기시겠습니까?</p>
+    <script>
+        const button = document.getElementById('avoidButton');
+
+        function moveButtonRandomly() {
+            const maxWidth = window.innerWidth - button.clientWidth;
+            const maxHeight = window.innerHeight - button.clientHeight;
+
+            const randomX = Math.random() * maxWidth;
+            const randomY = Math.random() * maxHeight;
+
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+
+        button.addEventListener('mouseenter', moveButtonRandomly);
+
+        function randomBH(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>
